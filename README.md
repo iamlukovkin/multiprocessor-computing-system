@@ -4,14 +4,14 @@
 <p>Целью данной работы являются определение характеристик многопроцессорных вычислительных систем (МВС) с общей памятью и исследование зависимости этих характеристик от числа процессоров и их быстродействия.</p>
 <h3>Структура проекта</h3>
 
-- [Контроллеры](src/controllers/__init__.py)
-  - [Контроллер МВС](src/controllers/mcs_controller.py)
-- [Модели](src/models/__init__.py)
-  - [Составление графиков](src/models/graph.py)
-  - [Модель МВС](src/models/mcs.py)
-- [Графический интерфейс](src/views/__init__.py)
-  - [Представление графиков](src/views/graphics_view.py)
-  - [Вывод информации о МВС](src/views/mcs_view.py)
+- [Контроллеры](src/main/controllers/__init__.py)
+  - [Контроллер МВС](src/main/controllers/mcs_controller.py)
+- [Модели](src/main/models/__init__.py)
+  - [Составление графиков](src/main/models/graph.py)
+  - [Модель МВС](src/main/models/mcs.py)
+- [Графический интерфейс](src/main/views/__init__.py)
+  - [Представление графиков](src/main/views/graphics_view.py)
+  - [Вывод информации о МВС](src/main/views/mcs_view.py)
 - [Запуск программы](main.py)
 - [Описание приложения](src/application.py)
 

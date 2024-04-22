@@ -1,40 +1,30 @@
-from src.controllers import MCSController
-from src.views import GraphicsView
-from src.views import MCSView
+# src/application.py
+from src.main.controllers import MCSController
+from src.main.controllers import PlotsController
+from src.main.controllers import MCSDataController
 
 
 class Application:
-    __mcs_controller: MCSController
+    __mcs_controller: MCSController = None
+    __plots_controller: PlotsController = None
 
     @staticmethod
     def main() -> None:
-        Application.setup_controller()
-        Application.display_graphics()
-        SystemExit(0)
+        intensity: float = 0.5
+        complexity: float = 18
+        channels: int = 6
+        probability: float = 0.55
 
-    @staticmethod
-    def setup_controller() -> None:
-        intencity: float = 2.5
-        average_comlexity: float = 15
-        channels_count: int = 4
-        average_time_to_excange: float = 0.15
-        probablity: float = 0.4
+        start_perfomance: int = 20
+        end_perfomance: int = 120
+        count_perfomances: int = 10
 
-        Application.__mcs_controller = MCSController(
-            intencity, average_comlexity, average_time_to_excange, probablity, channels_count)
+        Application.__mcs_controller = MCSController(intensity, complexity, probability)
+        Application.__plots_controller = PlotsController()
 
-    @staticmethod
-    def display_graphics() -> None:
-        controller: MCSController = Application.__mcs_controller
+        MCSDataController.collect_minimal_perfomance_data(Application.__mcs_controller)
+        perfomances: list[float] = Application.__mcs_controller.get_perfomances(
+            start_perfomance, end_perfomance, count_perfomances)
+        data: dict = Application.__mcs_controller.calculate(channels, perfomances)
+        MCSDataController.display(data)
 
-        queue_length_dependency: dict[int, float] = controller.get_dependency_queue_length()
-        GraphicsView.display_queue_length(queue_length_dependency)
-
-        average_waiting_time: dict[int, float] = controller.get_dependency_average_waiting_time()
-        GraphicsView.display_average_waiting_time(average_waiting_time)
-
-        average_time_of_stay: dict[int, float] = controller.get_dependency_average_time_of_stay()
-        GraphicsView.display_average_time_of_stay(average_time_of_stay)
-
-        print(MCSView.display_minimal_perfomance(controller.calculate_minimal_perfomance()))
-        return
