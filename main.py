@@ -1,9 +1,5 @@
-from src.main import application
-
-
-def main():
-    application.main()
+from src.application import Application
 
 
 if __name__ == '__main__':
-    main()
+    Application.main()
