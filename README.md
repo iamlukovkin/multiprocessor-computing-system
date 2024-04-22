@@ -14,3 +14,24 @@
   - [Вывод информации о МВС](src/views/mcs_view.py)
 - [Запуск программы](main.py)
 - [Описание приложения](src/application.py)
+
+<h3>Установка приложения</h3>
+
+Windows
+```bash
+python3 -m venv venv
+pip install -r requirements.txt
+venv/Scripts/activate
+```
+
+Linux/macOS
+```bash
+python3 -m venv venv
+pip install -r requirements.txt
+venv/bin/activate
+```
+
+<h3>Запуск приложения</h3>
+```bash
+python3 main.py
+```
