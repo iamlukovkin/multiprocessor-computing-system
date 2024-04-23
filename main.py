@@ -1,5 +1,5 @@
-from src.application import Application
+from src.main.application import Application
 
 
 if __name__ == "__main__":
-    Application.main()
+    Application.lab5()

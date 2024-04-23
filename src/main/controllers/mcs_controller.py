@@ -34,7 +34,8 @@ class MCSController:
                 data[channels_count][perfomance] = {
                     MCSParametres.AVERAGE_WAITING_TIME: parametres[0],
                     MCSParametres.AVERAGE_QUEUE_LENGTH: parametres[1],
-                    MCSParametres.AVERAGE_TIME_OF_REQUEST: parametres[2]
+                    MCSParametres.AVERAGE_TIME_OF_REQUEST: parametres[2],
+                    MCSParametres.CPU_LOAD: parametres[3],
                 }
         return data
 
@@ -45,7 +46,8 @@ class MCSController:
             channels_count, perfomance)
         average_time_of_request: float = self.get_average_time_of_request(
             channels_count, perfomance)
-        return average_waiting_time, average_queue_length, average_time_of_request
+        cpu_load: float = self.get_cpu_load(channels_count, perfomance)
+        return average_waiting_time, average_queue_length, average_time_of_request, cpu_load
 
     def get_average_waiting_time(self, channels: int, perfomance: float) -> float:
         mcs_model: MCSModel = self.__get_mcs_model(channels, perfomance)

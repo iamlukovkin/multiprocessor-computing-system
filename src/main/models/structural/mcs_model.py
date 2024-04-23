@@ -93,8 +93,8 @@ class MCSModel:
         cpu_load: float = self.get_cpu_load()
         try:
             return ((self.get_service_time() * (channels ** (channels - 1)) * (cpu_load ** channels))
-                / (math.factorial(channels - 1) * ((1 - cpu_load) ** 2))
-                * self.get_probability())
+                    / (math.factorial(channels - 1) * ((1 - cpu_load) ** 2))
+                    * self.get_probability())
         except ZeroDivisionError:
             return math.inf
 

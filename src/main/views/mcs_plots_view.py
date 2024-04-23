@@ -25,3 +25,7 @@ class PlotsView:
     @staticmethod
     def display_average_queue_length(data: dict) -> None:
         PlotsView.display_anything(data, 'l = f(N, B)', 'Количество каналов, N', 'Средняя длина очереди, l')
+
+    @staticmethod
+    def display_cpu_load(data: dict) -> None:
+        PlotsView.display_anything(data, 'r = f(N, B)', 'Количество каналов, N', 'Загрузка процессора, r')
