@@ -8,24 +8,42 @@ from src.main.controllers.mcs_controller import MCSController
 class MCSDataController:
     @staticmethod
     def display_average_waiting_time(data: dict) -> None:
-        converted_data: dict = PlotsController.convert_average_waiting_time(data)
-        TablesController.save_waiting_time(converted_data)
-        PlotsView.display_average_waiting_time(converted_data)
+        """
+        Выводит данные о среднем времени ожидания в виде графиков
+        """
+        converted_data: dict = PlotsController.convert_average_waiting_time(data) # формиатирование данных
+        TablesController.save_waiting_time(converted_data)  # сохранение данных в таблицу
+        PlotsView.display_average_waiting_time(converted_data) # вывод графика
 
     @staticmethod
     def display_average_time_of_request(data: dict) -> None:
-        converted_data: dict = PlotsController.convert_average_time_of_request(data)
-        TablesController.save_average_time_of_request(converted_data)
-        PlotsView.display_average_time_of_request(converted_data)
+        """
+        Выводит данные о среднем времени обработки заявки в виде графиков
+        :param data:
+        :return:
+        """
+        converted_data: dict = PlotsController.convert_average_time_of_request(data) # формиатирование данных
+        TablesController.save_average_time_of_request(converted_data)  # сохранение данных в таблицу
+        PlotsView.display_average_time_of_request(converted_data) # вывод графика
 
     @staticmethod
     def display_average_queue_length(data: dict) -> None:
-        converted_data: dict = PlotsController.convert_average_queue_length(data)
-        TablesController.save_average_queue_length(converted_data)
-        PlotsView.display_average_queue_length(converted_data)
+        """
+        Выводит данные о средней длине очереди заявок в виде графиков
+        :param data:
+        :return:
+        """
+        converted_data: dict = PlotsController.convert_average_queue_length(data) # формиатирование данных
+        TablesController.save_average_queue_length(converted_data)  # сохранение данных в таблицу
+        PlotsView.display_average_queue_length(converted_data) # вывод графика
 
     @staticmethod
     def display(data: dict) -> None:
+        """
+        Выводит все данные системы
+        :param data:
+        :return:
+        """
         MCSDataController.display_average_waiting_time(data)
         MCSDataController.display_average_time_of_request(data)
         MCSDataController.display_average_queue_length(data)

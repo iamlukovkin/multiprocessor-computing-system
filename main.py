@@ -1,5 +1,5 @@
-from src.main.application import Application
+from src.main.application import Application    # класс с описанием лабораторных работ
 
 
 if __name__ == "__main__":
-    Application.lab5()
+    Applicati%on.lab5()  # ссылка на лабораторную работу

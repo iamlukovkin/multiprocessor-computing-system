@@ -4,6 +4,9 @@ from src.main.models.structural.mcs_parametres import MCSParametres
 
 
 class TablesController:
+    def __init__(self):
+        pass
+
     @staticmethod
     def save_data_to_xlsx(data: dict, save_path: str) -> None:
         path: str = 'res/tables/' + save_path
@@ -34,7 +37,12 @@ class TablesController:
 
     @staticmethod
     def save_minimal_perfomance_characteristics(data: dict) -> None:
-        result: dict = {
+        """
+        Сохраняет данные о минимальной производительности в виде таблицы в xlsx
+        :param data: словарь с характеристиками (из контроллера)
+        :return: None
+        """
+        result: dict = {    # Формирование заголовков таблицы
             "Производительность процессора, оп/с": [data[MCSParametres.SINGLE_PROCESSOR_PERFOMANCE]],
             "Средняя нагрузка CPU, %": [data[MCSParametres.CPU_LOAD]],
             "Среднее время ожидания, с": [data[MCSParametres.AVERAGE_WAITING_TIME]],
@@ -42,4 +50,4 @@ class TablesController:
             "Средняя длина очереди заявок, с": [data[MCSParametres.AVERAGE_QUEUE_LENGTH]],
             "Среднее время обслуживания одной заявки, с": [data[MCSParametres.SERVICE_TIME]]
         }
-        TablesController.save_data_to_xlsx(result, 'minimal_perfomance_characteristics.xlsx')
+        TablesController.save_data_to_xlsx(result, 'minimal_perfomance_characteristics.xlsx')   # Сохранение
